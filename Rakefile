@@ -4,3 +4,26 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+namespace :rabbitmq do
+  desc "Setup routing"
+  task :setup do
+    require "bunny"
+
+    conn = Bunny.new
+    conn.start
+
+    ch = conn.create_channel
+
+    # get or create exchange
+    x = ch.fanout("urlockbox.links")
+
+    # get or create queue (note the durable setting)
+    queue = ch.queue("hotreads.links", durable: true)
+
+    # bind queue to exchange
+    queue.bind("urlockbox.links")
+
+    conn.close
+  end
+end
