@@ -4,7 +4,6 @@ class Link < ActiveRecord::Base
   validates :url, presence: true
   validates :title, presence: true
 
-
   def valid_url?(url)
     uri = URI.parse(url)
     uri.is_a?(URI::HTTP) && !uri.host.nil?
