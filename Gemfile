@@ -17,6 +17,7 @@ gem 'sprockets-es6'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bunny'
 gem 'unicorn'
+gem 'figaro'
 
 # gem 'capistrano-rails', group: :development
 group :development do

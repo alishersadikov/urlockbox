@@ -9,7 +9,7 @@ class Publisher
   end
 
   def self.connection
-    @connection ||= Bunny.new.tap do |c|
+    @connection ||= Bunny.new(ENV['RABBITMQ-PUBLISHER']).tap do |c|
       c.start
     end
   end
