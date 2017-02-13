@@ -15,8 +15,8 @@ gem 'responders'
 gem 'awesome_print'
 gem 'sprockets-es6'
 gem 'bcrypt', '~> 3.1.7'
-
-# gem 'unicorn'
+gem 'bunny'
+gem 'unicorn'
 
 # gem 'capistrano-rails', group: :development
 group :development do
