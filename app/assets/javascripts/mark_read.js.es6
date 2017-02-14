@@ -16,13 +16,6 @@ function markAsRead(e) {
     data: { read: true },
   }).then(updateLinkStatus)
     .fail(displayFailure);
-
-  $.ajax({
-    type: "post",
-    url: "localhost:3000/api/v1/reads",
-    data: {title: linkTitle, url: linkUrl}
-  }).then(updateLinkStatus)
-    .fail(displayFailure);
 }
 
 function updateLinkStatus(link) {
