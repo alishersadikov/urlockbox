@@ -8,6 +8,7 @@ class LinksController < ApplicationController
     link = Link.new(link_params)
     link.user_id = current_user.id
     if link.valid_url?(link.url) && link.save
+      Publisher.publish("links", link.attributes)
       flash[:success] = "Link created!"
       redirect_to links_path
     else

@@ -19,7 +19,9 @@ gem 'rack-cors', :require => 'rack/cors'
 gem 'faraday'
 
 # gem 'unicorn'
-
+gem 'bunny'
+gem 'unicorn'
+gem 'figaro'
 # gem 'capistrano-rails', group: :development
 group :development do
   gem 'web-console', '~> 2.0'
