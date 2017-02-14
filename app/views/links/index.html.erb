@@ -7,12 +7,12 @@
     <tr>
       <th>Title</th>
       <th>URL</th>
-      <th></th>
+        <th></th>
     </tr>
-    <tr>
+    <tr class='link' data-link-id="<%= link.id %>" data-link-title="<%= link.title %>" data-link-url="<%=link.url%>">
       <td><%=link.title%></td>
       <td><%=link.url%></td>
-      <td> <%= link_to "Mark as read", "#" %>   </td>
+      <td> <button type="button" class="mark-as-read" >Mark As Read</button> </td>
     </tr>
   </table>
 

@@ -7,11 +7,20 @@ function markAsRead(e) {
 
   var $link = $(this).parents('.link');
   var linkId = $link.data('link-id');
+  var linkTitle = $link.data('link-title');
+  var linkUrl = $link.data('link-url');
 
   $.ajax({
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
     data: { read: true },
+  }).then(updateLinkStatus)
+    .fail(displayFailure);
+
+  $.ajax({
+    type: "post",
+    url: "localhost:3000/api/v1/reads",
+    data: {title: linkTitle, url: linkUrl}
   }).then(updateLinkStatus)
     .fail(displayFailure);
 }
